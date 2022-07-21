@@ -1,0 +1,78 @@
+﻿@model IEnumerable<LibraryManagement.ViewModel.BookViewModel>
+
+@{
+    ViewData["Title"] = "ListBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Book List</h1>
+<p>
+    <a asp-action="CreateBook" class="btn btn-primary">Create New</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Copies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookPublication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublisherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBNNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CopyRightYear)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Copies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookPublication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBNNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopyRightYear)
+            </td>
+
+            <td>
+                <a asp-action="EditBook" asp-route-id="@item.BookId"><i class='fa fa-pencil'></i></a> &nbsp;&nbsp;
+                <a asp-action="DetailsBook" asp-route-id="@item.BookId"><i class="fa-regular fa-eye"></i></a> &nbsp;&nbsp;
+                <a asp-action="DeleteBook" asp-route-id="@item.BookId"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

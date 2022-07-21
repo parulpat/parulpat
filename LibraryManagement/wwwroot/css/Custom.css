@@ -1,0 +1,15 @@
+﻿#layoutSidenav_content {
+    margin-left: auto;
+    width: 84%;
+    margin-top: 81px;
+}
+.mg-at {
+    margin: auto !important;
+    margin: auto;
+}
+
+.div-border {
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    padding: 10px;
+}

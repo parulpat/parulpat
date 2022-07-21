@@ -1,0 +1,24 @@
+﻿@model LibraryManagement.Models.Author
+
+@{
+    ViewData["Title"] = "DetailsAuthor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Author Details</h1>\
+<hr/>
+<div class="form-group">
+    <a asp-action="EditAuthor" asp-route-id="@Model.AuthorId" class="btn btn-primary">Edit</a>
+    <a asp-action="ListAuthor" class="btn btn-primary">Back to List</a>
+</div>
+<br />
+<div class="form-group row">
+    <div class="col-lg-10 mg-at row">
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayFor(model => model.AuthorName)
+        </div>
+    </div>
+</div>

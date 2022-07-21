@@ -1,0 +1,25 @@
+﻿@model LibraryManagement.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Category Details</h1>
+<hr />
+<div class="form-group">
+    <a asp-action="EditCategory" asp-route-id="@Model.CategoryId" class="btn btn-primary">Edit</a>
+    <a asp-action="ListCategory" class="btn btn-primary">Back to List</a>
+</div>
+<br />
+<div class="form-group row">
+    <div class="col-lg-10 mg-at row">
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayFor(model => model.CategoryName)
+        </div>
+    </div>
+</div>
+

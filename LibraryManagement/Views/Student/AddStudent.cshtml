@@ -1,0 +1,61 @@
+﻿@model LibraryManagement.ViewModel.StudentViewModel
+
+@{
+    ViewData["Title"] = "AddStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add Student</h1>
+<hr />
+<div class="row">
+    <div class="col-lg-12">
+        <form asp-action="SaveStudent" asp-controller="Student" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-lg-6">
+                    <label asp-for="studentName" class="control-label"></label>
+                    <input asp-for="studentName" class="form-control" />
+                    <span asp-validation-for="studentName" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6">
+                    <label asp-for="RollNo" class="control-label"></label>
+                    <input asp-for="RollNo" class="form-control" />
+                    <span asp-validation-for="RollNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-6">
+                    <label asp-for="FatherName" class="control-label"></label>
+                    <input asp-for="FatherName" class="form-control" />
+                    <span asp-validation-for="FatherName" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6">
+                    <label asp-for="Class" class="control-label"></label>
+                    <input asp-for="Class" class="form-control" />
+                    <span asp-validation-for="Class" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-6">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6">
+                    <label asp-for="ProfileImage" class="control-label"></label>
+                    <input asp-for="ProfileImage" class="form-control" type="file"/>
+                    <span asp-validation-for="ProfileImage" class="text-danger"></span>
+                </div>
+            </div>
+           <br/>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="ListStudent" class="btn btn-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

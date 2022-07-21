@@ -1,0 +1,42 @@
+﻿@model LibraryManagement.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "DetailsUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User Detail</h1>
+<div class="form-group">
+    <a asp-action="EditRegisteruser" asp-route-id="@Model.UserId" class="btn btn-primary">Edit</a>
+    <a asp-action="ListUser" class="btn btn-primary" y>Back to List</a>
+</div>
+<br />
+<div class="form-group row">
+    <div class="col-lg-10 mg-at row">
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayNameFor(model => model.UserName)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayFor(model => model.UserName)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayNameFor(model => model.EmailId)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayFor(model => model.EmailId)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayFor(model => model.ContactNo)
+        </div>
+        <div class="col-lg-5 div-border ">
+            @Html.DisplayNameFor(model => model.ProfileImagePath)
+        </div>
+        <div class="col-lg-5 div-border ">
+                <img src="~/images/@Model.ProfileImagePath" width="50px" height="50px" />
+        </div>
+    </div>
+</div>
+

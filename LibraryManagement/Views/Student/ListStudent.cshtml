@@ -1,0 +1,65 @@
+﻿@model IEnumerable<LibraryManagement.Models.Student>
+
+@{
+    ViewData["Title"] = "ListStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Student List</h1>
+<p>
+    <a asp-action="AddStudent" class="btn btn-primary">Create New</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.studentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RollNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfileImagePath)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <img src="~/images/@item.ProfileImagePath" width="50px" height="50px" />
+            </td>
+            <td>
+                <a asp-action="EditStudent" asp-route-id="@item.studentId"><i class='fa fa-pencil'></i></a> &nbsp;&nbsp;
+                <a asp-action="DetailsStudent" asp-route-id="@item.studentId"><i class="fa-regular fa-eye"></i></a> &nbsp;&nbsp;
+                <a asp-action="DeleteStudnet" asp-route-id="@item.studentId"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
